@@ -1,0 +1,118 @@
+.title{
+    background-color: var(--c1);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.wlin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-40px);
+}
+.logo{
+    position: relative;
+    height: 70%;
+    display: flex;
+}
+button{
+    width: fit-content;
+    align-self: center;
+    margin: 10px;
+    /* transform: translateY(-40px); */
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+}
+
+#guestlogin{
+    background-color: transparent;
+    color: grey;
+    border: none;
+}
+
+#welcome{
+    color: var(--c3);
+    align-self: center;
+}
+.circle h1{
+    position:relative;
+    font-size: 60px;
+    color: var(--c4);
+    text-shadow: 10px 10px 20px var(--c4);
+}
+p{
+    color: var(--c4);
+    font-size: 13px;
+    font-style: italic;
+}
+
+.circle{
+    position: absolute;
+    background-color: var(--c2);
+    margin: 0px;
+    box-shadow: 10px 10px 20px 10px var(--c4);
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 30px;
+    bottom: 80px;
+    /* transform: translateY(-50px); */
+    animation-name: revolveBackground;
+    animation-duration: 10s;
+    animation-timing-function:ease in;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+.c1{
+    height:800px ;
+    width: 800px;
+    animation-delay: 0s;
+    animation-name: entry;
+    animation-iteration-count:1;
+    animation-duration:3s;
+    animation-timing-function: ease;
+}
+.c2{
+    height:600px ;
+    width: 600px;
+    animation-delay: 1s;
+}
+.c3{
+    height:400px ;
+    width: 400px;
+    animation-delay: 2s;
+}
+.c4{
+    height:200px ;
+    width: 200px;
+    animation-delay: 3s;
+}
+
+@keyframes revolveBackground{
+    0%{
+        box-shadow: 10px 10px 20px 10px var(--c4);
+    }
+    25%{
+        box-shadow: -10px 10px 20px 10px var(--c4);
+    }
+    50%{
+        box-shadow: -10px -10px 20px 10px var(--c4);
+    }
+    75%{
+        box-shadow: 10px -10px 20px 10px var(--c4);
+    }
+}
+@keyframes entry{
+    0%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

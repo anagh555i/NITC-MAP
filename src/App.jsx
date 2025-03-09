@@ -10,7 +10,7 @@ import EventsPage from "./EventsPage.jsx"
 import TitlePage from "./TitlePage.jsx"
 
 function App() {
-  const [user, setUser]= useState(null);
+  const [user, setUser]= useState(null);  //no use for now, might as well remove in future
   const [cookie, setCookie, removeCookie]=useCookies("user");
   
   useEffect(()=>{
@@ -18,7 +18,7 @@ function App() {
   },[]);
 
   return (
-    <BrowserRouter basename='NITC-MAP'>
+    <BrowserRouter basename='NITC-MAP' >
       <Routes>
         <Route path="/" element={<TitlePage user={user} />} />
         <Route path="/home" element={<HomePage user={user} setUser={setUser}/>} />
