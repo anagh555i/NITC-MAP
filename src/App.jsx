@@ -4,7 +4,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
-import HomePage from "./HomePage.jsx"
+import HomePage from "./Home/HomePage.jsx"
 import LoginPage from './LoginPage.jsx'
 import EventsPage from "./EventsPage.jsx"
 import TitlePage from "./TitlePage.jsx"
