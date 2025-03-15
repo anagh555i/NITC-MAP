@@ -26,6 +26,7 @@ function HomePage(props){
     return (
         <>
         <BaseMap/>
+        <button onClick={()=>handleLogout()} style={{position:"absolute",bottom:"100px"}}>Logout</button>
         </>
     );
 }
