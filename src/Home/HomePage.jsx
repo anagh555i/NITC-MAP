@@ -1,12 +1,16 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
 
 import BaseMap from "./BaseMap.jsx"
+import SearchBar from "./SearchBar.jsx"
+import Menu from "./Menu.jsx"
+import SpotLight from "./SpotLight.jsx"
 import "./Homepage.css"
 
 function HomePage(props){
     const [cookie, setCookie, removeCookie]=useCookies("user");
+    const [menuUp, setMenuUp]=useState(false);
     const navigate=useNavigate();
 
     useEffect(()=>{
@@ -26,7 +30,9 @@ function HomePage(props){
     return (
         <>
         <BaseMap/>
-        <button onClick={()=>handleLogout()} style={{position:"absolute",bottom:"100px"}}>Logout</button>
+        <SearchBar setMenuUp={setMenuUp} menuUp={menuUp}/>
+        <SpotLight/>
+        <Menu menuUp={menuUp} setMenuUp={setMenuUp} handleLogout={handleLogout}/>
         </>
     );
 }
