@@ -26,6 +26,7 @@ function LoginPage(props){
     return (
         <>
         <h1>Login Page</h1>
+        <h1>hello</h1>
         <button onClick={()=>handleLogin()}>Sign in</button>
         </>
     );
