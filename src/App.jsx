@@ -4,14 +4,22 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
+import {View} from "ol";
+
 import HomePage from "./Home/HomePage.jsx"
 import LoginPage from './LoginPage.jsx'
-import EventsPage from "./EventsPage.jsx"
+import EventsPage from "./Event/EventsPage.jsx"
 import TitlePage from "./TitlePage.jsx"
 
 function App() {
   const [user, setUser]= useState(null);  //no use for now, might as well remove in future
   const [cookie, setCookie, removeCookie]=useCookies("user");
+
+  const [view, setView]=useState(new View({ //map view on screen
+    center: [8452796.245751543,1268422.763649639],//nitc maingate coordinates
+    zoom: 20,
+    maxZoom: 18.5
+  }));
   
   useEffect(()=>{
     window.scrollTo(0, 0);
@@ -21,9 +29,9 @@ function App() {
     <BrowserRouter basename='/' >
       <Routes>
         <Route path="/" element={<TitlePage user={user} />} />
-        <Route path="/home" element={<HomePage user={user} setUser={setUser}/>} />
+        <Route path="/home" element={<HomePage user={user} setUser={setUser} view={view} setView={setView}/>} />
         <Route path="/login" element={<LoginPage setUser={setUser}/>} />
-        <Route path="/events" element={<EventsPage user={user}/>} />
+        <Route path="/events" element={<EventsPage user={user} setView={setView} view={view}/>} />
         <Route path="/*" element={<h1>404 Not found</h1>}/>
       </Routes>
     </BrowserRouter>

@@ -14,17 +14,12 @@ import locationPuck from "../assets/locationPuck.svg"
 import locationPin from "../assets/locationPin.svg"
 
 
-function BaseMap({setPull,setDestination}){
+function BaseMap({setPull,setDestination,view,setView}){
     const mapRef = useRef();
     const map=useRef();
     const userLocation=useRef(); //stores the current location of user 
     const [TileLayer,setTileLayer]=useState(new Tile({ //the base layer
         source: new OSM()
-    }));
-    const [view, setView]=useState(new View({ //map view on screen
-        center: [8452796.245751543,1268422.763649639],//nitc maingate coordinates
-        zoom: 20,
-        maxZoom: 18.5
     }));
     const locationFeature=new Feature({
         geometry: new Point([0,0])

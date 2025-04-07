@@ -1,7 +1,9 @@
 import { useState } from "react";
 import userIcon from "../assets/userIcon.svg"
+import { useNavigate } from 'react-router-dom'
 
 function Menu({menuUp,setMenuUp,handleLogout}){
+    const navigate=useNavigate();
     return (
         <>
         <div id="blurlayer" style={{visibility:menuUp?"visible":"hidden"}} onClick={()=>setMenuUp(false)}></div>
@@ -14,7 +16,8 @@ function Menu({menuUp,setMenuUp,handleLogout}){
                 </div>
                 <br />
                 
-                <button onClick={()=>handleLogout()}>Logout</button>
+                <button onClick={()=>navigate("/events")} className="menubuttons">Events</button>
+                <button onClick={()=>handleLogout()} className="menubuttons">Logout</button>
             </div>
         </div>
         </>
