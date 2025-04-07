@@ -80,7 +80,7 @@ function BaseMap({setPull,setDestination}){
             view:view
         });
         map.current=mapInstance;
-        mapInstance.on("pointerdown",(e)=>{
+        mapInstance.on("click",(e)=>{
             setDestination(e.coordinate);
             destinationFeature.getGeometry().setCoordinates(e.coordinate);
             setPull(true);
