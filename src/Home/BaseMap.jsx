@@ -11,6 +11,7 @@ import {Style,Icon} from "ol/style"
 import PinPoint from "./PinPoint.jsx"
 import LayerChanger from "./LayerChanger.jsx"
 import locationPuck from "../assets/locationPuck.svg"
+import locationPin from "../assets/locationPin.svg"
 
 
 function BaseMap({setPull,setDestination}){
@@ -38,7 +39,24 @@ function BaseMap({setPull,setDestination}){
             image: new Icon({
                 anchor:[0,0],
                 src:locationPuck,
-                scale:0.2
+                scale:0.05
+            })
+        })
+    });
+    const destinationFeature=new Feature({
+        geometry: new Point([8452796.245751543,1268422.763649639])
+    });
+    const destinationLayer = new Vector({
+        source: new VectorSource({
+            features: [
+                destinationFeature
+            ]
+        }),
+        style: new Style({
+            image: new Icon({
+                anchor:[0,0],
+                src:locationPin,
+                scale:0.05
             })
         })
     });
@@ -58,13 +76,13 @@ function BaseMap({setPull,setDestination}){
     useEffect(()=>{
         const mapInstance= new Map({
             target: mapRef.current,
-            layers:[TileLayer,PointLayer],
+            layers:[TileLayer,PointLayer,destinationLayer],
             view:view
         });
         map.current=mapInstance;
         mapInstance.on("click",(e)=>{
-            // console.log(e.coordinate);
-            setDestination(fromLonLat(e.coordinate));
+            setDestination(e.coordinate);
+            destinationFeature.getGeometry().setCoordinates(e.coordinate);
             setPull(true);
         });
         return ()=>mapInstance.setTarget(null); //call back to unmount map
