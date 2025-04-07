@@ -18,7 +18,7 @@ function App() {
   },[]);
 
   return (
-    <BrowserRouter basename='NITC-MAP' >
+    <BrowserRouter basename='/' >
       <Routes>
         <Route path="/" element={<TitlePage user={user} />} />
         <Route path="/home" element={<HomePage user={user} setUser={setUser}/>} />
