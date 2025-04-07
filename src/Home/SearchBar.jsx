@@ -9,10 +9,12 @@ function SearchBar({menuUp,setMenuUp}){
         <div id="searchcontainer">
         <div id="search">
             <button id="morebutton" onClick={()=>setMenuUp(!menuUp)}>
-                <img src={menuicon} alt="" style={{height:"40px"}}/>
+                <img src={menuicon} alt="" style={{height:"100%"}}/>
             </button>
             <input type="text" ref={searchtext} placeholder="Search here"/>
-            <img src={searchicon} alt="" />
+            <button id="searchbutton">
+                <img src={searchicon} alt="" style={{height:"100%"}}/>
+            </button>
         </div>
         </div>
     );

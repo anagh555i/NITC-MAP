@@ -11,6 +11,8 @@ import "./Homepage.css"
 function HomePage(props){
     const [cookie, setCookie, removeCookie]=useCookies("user");
     const [menuUp, setMenuUp]=useState(false);
+    const [pull,setPull]=useState(false); // for pulling spotlight div
+    const [destination,setDestination]=useState([8452796.245751543,1268422.763649639]);
     const navigate=useNavigate();
 
     useEffect(()=>{
@@ -29,9 +31,9 @@ function HomePage(props){
 
     return (
         <>
-        <BaseMap/>
+        <BaseMap setPull={setPull} setDestination={setDestination}/>
         <SearchBar setMenuUp={setMenuUp} menuUp={menuUp}/>
-        <SpotLight/>
+        <SpotLight pull={pull} setPull={setPull} destination={destination}/>
         <Menu menuUp={menuUp} setMenuUp={setMenuUp} handleLogout={handleLogout}/>
         </>
     );

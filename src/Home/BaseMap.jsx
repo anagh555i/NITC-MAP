@@ -13,7 +13,7 @@ import LayerChanger from "./LayerChanger.jsx"
 import locationPuck from "../assets/locationPuck.svg"
 
 
-function BaseMap(){
+function BaseMap({setPull,setDestination}){
     const mapRef = useRef();
     const map=useRef();
     const userLocation=useRef(); //stores the current location of user 
@@ -62,6 +62,11 @@ function BaseMap(){
             view:view
         });
         map.current=mapInstance;
+        mapInstance.on("click",(e)=>{
+            // console.log(e.coordinate);
+            setDestination(fromLonLat(e.coordinate));
+            setPull(true);
+        });
         return ()=>mapInstance.setTarget(null); //call back to unmount map
     },[]);
 

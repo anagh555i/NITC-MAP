@@ -14,7 +14,7 @@ function App() {
   const [cookie, setCookie, removeCookie]=useCookies("user");
   
   useEffect(()=>{
-
+    window.scrollTo(0, 0);
   },[]);
 
   return (

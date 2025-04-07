@@ -1,21 +1,20 @@
 import { useState } from "react";
 
-function SpotLight(){
-    const [pull,setPull]=useState(false);
+function SpotLight({pull,setPull,destination}){
     return (
         <div style={{
             width:"100vw",
             display:"flex",
             justifyContent:"center",
             position:"absolute",
-            top:`${pull?"50vh":"96vh"}`,
+            top:`${pull?"50vh":"100vh"}`,
             padding:"0px",
-            transition: "all ease 0.5s"
+            transition: "all ease 0.4s"
         }}>
         <div id="spotlight">
             <button id="pull" onClick={()=>setPull(!pull)}></button>
             <br />
-            <h2>coordinate info</h2>
+            <h3>{destination[0]%10000000}<br></br>{destination[1]%10000000}</h3>
             <h2>images if there</h2>
             <div>
                 <button>...</button> 
