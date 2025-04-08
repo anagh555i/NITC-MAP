@@ -6,6 +6,7 @@ import BaseMap from "./BaseMap.jsx"
 import SearchBar from "./SearchBar.jsx"
 import Menu from "./Menu.jsx"
 import SpotLight from "./SpotLight.jsx"
+import AddEventLocation from "./AddEventLocation.jsx"
 import "./Homepage.css"
 
 function HomePage(props){
@@ -13,6 +14,7 @@ function HomePage(props){
     const [menuUp, setMenuUp]=useState(false);
     const [pull,setPull]=useState(false); // for pulling spotlight div
     const [destination,setDestination]=useState([8452796.245751543,1268422.763649639]);
+    const [eventLoc,setEventLoc]=useState("none");
     const navigate=useNavigate();
 
     useEffect(()=>{
@@ -33,8 +35,9 @@ function HomePage(props){
         <>
         <BaseMap setPull={setPull} setDestination={setDestination} view={props.view} setView={props.setView}/>
         <SearchBar setMenuUp={setMenuUp} menuUp={menuUp}/>
-        <SpotLight pull={pull} setPull={setPull} destination={destination}/>
+        <SpotLight pull={pull} setPull={setPull} destination={destination} setEventLoc={setEventLoc}/>
         <Menu menuUp={menuUp} setMenuUp={setMenuUp} handleLogout={handleLogout}/>
+        <AddEventLocation eventLoc={eventLoc} destination={destination} setEventLoc={setEventLoc}></AddEventLocation>
         </>
     );
 }

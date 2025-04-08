@@ -1,6 +1,16 @@
 import { useState } from "react";
 
-function SpotLight({pull,setPull,destination}){
+function SpotLight({pull,setPull,destination,setEventLoc}){
+
+    function handleAddLocation(){
+        setPull(!pull);
+        setEventLoc("location");
+    }
+    function handleAddEvent(){
+        setPull(!pull);
+        setEventLoc("event");
+    }
+
     return (
         <div style={{
             width:"100vw",
@@ -14,12 +24,12 @@ function SpotLight({pull,setPull,destination}){
         <div id="spotlight">
             <button id="pull" onClick={()=>setPull(!pull)}></button>
             <br />
-            <h3>{destination[0]%10000000}<br></br>{destination[1]%10000000}</h3>
-            <h2>images if there</h2>
+            <p>{destination[0]}<br></br>{destination[1]}</p>
+            <img src={null} alt="img" />
             <div>
                 <button>...</button> 
-                <button>...</button> 
-                <button>...</button> 
+                <button onClick={()=>handleAddLocation()}>Add location</button> 
+                <button onClick={()=>handleAddEvent()}>Add event</button> 
             </div>
         </div>
         </div>

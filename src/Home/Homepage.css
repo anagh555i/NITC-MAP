@@ -149,6 +149,10 @@
     margin: none;
     height: 90vh;
 }
+#spotlight button{
+    font-size: 15px;
+    border: none;
+}
 #pull{
     width: 120px;
     height: 10px;
@@ -165,4 +169,39 @@
 }
 .menubuttons:hover{
     color: rgb(142, 207, 242);
+}
+
+.addeventlocation{
+    position:absolute;
+    top:30%;
+    left: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.addeventlocation input{
+    border: none;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.addeventlocation .container{
+    background-color: var(--c2);
+    box-shadow: 2px 2px 10px 2px rgb(95, 95, 95);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#locationAddbutton{
+    font-size: 10px;
+    border: none;
+}
+#eventAddbutton{
+    font-size: 10px;
+    border: none;
 }
