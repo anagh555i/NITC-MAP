@@ -1,0 +1,115 @@
+/* Main container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+  }
+  
+  /* Form Wrapper */
+  .auth-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #696969;
+    overflow: hidden;
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 100px;
+    padding: 10px;
+    background-color: #696969;
+    justify-content: center;
+  }
+  
+  /* Sign in / Sign up buttons */
+  .auth-toggle-button {
+    background-color: #555555;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: sans-serif;
+    margin: 2px;
+    align-self: center;
+  }
+  
+  .auth-toggle-button.active {
+    background-color: black;
+  }
+  
+  /* Form Box */
+  .auth-box {
+    padding: 30px;
+    height: 100%;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    border-radius: 30px;
+  }
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  
+  /* Input labels */
+  .auth-label {
+    margin: 0 0 5px 0;
+    color: black;
+    font-size: 1em;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  /* Input fields */
+  .auth-input {
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #e8e8e8;
+  }
+  
+  /* Auth Buttons */
+  .auth-button {
+    width: 350px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: sans-serif;
+  }
+  
+  /* Google Sign In Button */
+  .google-signin-button {
+    width: 350px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: sans-serif;
+  }
+  
+  /* "or" text */
+  .auth-or-text {
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #888888;
+  }

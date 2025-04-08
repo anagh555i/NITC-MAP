@@ -10,6 +10,7 @@ import HomePage from "./Home/HomePage.jsx"
 import LoginPage from './LoginPage.jsx'
 import EventsPage from "./Event/EventsPage.jsx"
 import TitlePage from "./TitlePage.jsx"
+import SignupPage from './SignupPage.jsx';
 
 function App() {
   const [user, setUser]= useState(null);  //no use for now, might as well remove in future
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<TitlePage user={user} />} />
         <Route path="/home" element={<HomePage user={user} setUser={setUser} view={view} setView={setView} locations={locations}/>} />
         <Route path="/login" element={<LoginPage setUser={setUser}/>} />
+        <Route path="/Signup" element={<SignupPage setUser={setUser}/>} />
         <Route path="/events" element={<EventsPage user={user} setView={setView} view={view}/>} />
         <Route path="/*" element={<h1>404 Not found</h1>}/>
       </Routes>

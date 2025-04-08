@@ -41,7 +41,8 @@ function TitlePage(props){
             <h1 id='welcome'>Welcom to POINTER</h1>
             <p>The only wayfinder at NITC you'll ever need</p>
             <br />
-            <button onClick={()=>navigate("/login")}>Login/Signup</button>
+            <button onClick={()=>navigate("/login")}>Login</button>
+            <button onClick={()=>navigate("/Signup")}>Signup</button>
             <button onClick={()=>handleGuestLogin()} id='guestlogin'>login as guest</button>
         </div>
         </div>

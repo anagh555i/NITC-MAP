@@ -52,7 +52,7 @@ function EventsPage({view,setView}){
     return (
         <div id="eventsContainer">  
             <button onClick={()=>{navigate("/home")}} id='backbutton'>
-                <img src={backbutton} alt="" style={{height:"100%"}}/>
+                <img src={backbutton} alt="" style={{height:"80px"}}/>
             </button>
             {events.map((el,index)=>{
                 return (<div className="event" key={index}>
