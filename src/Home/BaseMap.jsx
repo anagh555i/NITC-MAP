@@ -14,7 +14,7 @@ import locationPuck from "../assets/locationPuck.svg"
 import locationPin from "../assets/locationPin.svg"
 
 
-function BaseMap({setPull,setDestination,view,setView}){
+function BaseMap({setPull,setDestination,destination,view,setView}){
     const mapRef = useRef();
     const map=useRef();
     const userLocation=useRef(); //stores the current location of user 
@@ -39,7 +39,7 @@ function BaseMap({setPull,setDestination,view,setView}){
         })
     });
     const destinationFeature=new Feature({
-        geometry: new Point([8452796.245751543,1268422.763649639])
+        geometry: new Point(destination)
     });
     const destinationLayer = new Vector({
         source: new VectorSource({

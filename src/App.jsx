@@ -14,6 +14,7 @@ import TitlePage from "./TitlePage.jsx"
 function App() {
   const [user, setUser]= useState(null);  //no use for now, might as well remove in future
   const [cookie, setCookie, removeCookie]=useCookies("user");
+  const [locations,setLocations]= useState([]);
 
   const [view, setView]=useState(new View({ //map view on screen
     center: [8452796.245751543,1268422.763649639],//nitc maingate coordinates
@@ -29,7 +30,7 @@ function App() {
     <BrowserRouter basename='/' >
       <Routes>
         <Route path="/" element={<TitlePage user={user} />} />
-        <Route path="/home" element={<HomePage user={user} setUser={setUser} view={view} setView={setView}/>} />
+        <Route path="/home" element={<HomePage user={user} setUser={setUser} view={view} setView={setView} locations={locations}/>} />
         <Route path="/login" element={<LoginPage setUser={setUser}/>} />
         <Route path="/events" element={<EventsPage user={user} setView={setView} view={view}/>} />
         <Route path="/*" element={<h1>404 Not found</h1>}/>

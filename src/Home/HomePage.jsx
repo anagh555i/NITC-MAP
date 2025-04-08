@@ -33,8 +33,8 @@ function HomePage(props){
 
     return (
         <>
-        <BaseMap setPull={setPull} setDestination={setDestination} view={props.view} setView={props.setView}/>
-        <SearchBar setMenuUp={setMenuUp} menuUp={menuUp}/>
+        <BaseMap setPull={setPull} setDestination={setDestination} view={props.view} setView={props.setView} destination={destination}/>
+        <SearchBar setMenuUp={setMenuUp} menuUp={menuUp} setView={props.setView} setDestination={setDestination}/>
         <SpotLight pull={pull} setPull={setPull} destination={destination} setEventLoc={setEventLoc}/>
         <Menu menuUp={menuUp} setMenuUp={setMenuUp} handleLogout={handleLogout}/>
         <AddEventLocation eventLoc={eventLoc} destination={destination} setEventLoc={setEventLoc}></AddEventLocation>
