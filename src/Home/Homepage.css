@@ -210,10 +210,18 @@
 #searchResult{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: 0px 20px 0px 20px;
     gap: 1px;
+    background-color: transparent;
+    height: 200px;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#searchResult::-webkit-scrollbar {
+    display: none;               /* Chrome, Safari */
 }
 
 .searchfield{

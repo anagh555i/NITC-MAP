@@ -11,38 +11,16 @@ function EventsPage({view,setView}){
     const navigate=useNavigate();
     const [events,setEvents]=useState([]);
 
+    async function fetchEvents(){
+        let arr=(await fetch(`https://nitc-map-backend.onrender.com/api/event/getAllEvents/`));
+        console.log(arr);
+        arr =await arr.json();
+        setEvents(arr);
+    }
+
     useEffect(()=>{
         if(!cookie.user) navigate("/"); 
-        setEvents([
-            {
-                eventName:"wheels",
-                location:[8452796.245751543,1268422.763649639],
-                poster:null,
-                startTime:new Date(2018, 11, 24, 10, 33, 30, 0),
-                endTime:new Date(2018, 11, 24, 11, 33, 30, 0),
-            },
-            {
-                eventName:"proshow",
-                location:[8452796.245751543,1268422.763649639],
-                poster:null,
-                startTime:new Date(2018, 11, 24, 10, 33, 30, 0),
-                endTime:new Date(2018, 11, 24, 10, 50, 30, 0),
-            },
-            {
-                eventName:"wheels",
-                location:[8452796.245751543,1268422.763649639],
-                poster:null,
-                startTime:new Date(2018, 11, 24, 10, 33, 30, 0),
-                endTime:new Date(2018, 11, 24, 11, 33, 30, 0),
-            },
-            {
-                eventName:"proshow",
-                location:[8452796.245751543,1268422.763649639],
-                poster:null,
-                startTime:new Date(2018, 11, 24, 10, 33, 30, 0),
-                endTime:new Date(2018, 11, 24, 10, 50, 30, 0),
-            }
-        ])
+        fetchEvents();
     },[]);
 
     const Eventslist=events.map(el=>{
@@ -55,11 +33,15 @@ function EventsPage({view,setView}){
                 <img src={backbutton} alt="" style={{height:"80px"}}/>
             </button>
             {events.map((el,index)=>{
+                let startTime=new Date(el.start.toString());
+                startTime=startTime.toLocaleString();
+                let endTime=new Date(el.end.toString());
+                endTime=endTime.toLocaleString();
                 return (<div className="event" key={index}>
                     <h2 className="EventHead">{el.eventName.toUpperCase()}</h2>
                     <img src={el.poster} alt="img" />
-                    <h3>START:{el.startTime.toString()}</h3>
-                    <h3>END:{el.endTime.toString()}</h3>
+                    <h3>START: {startTime}</h3>
+                    <h3>END: {endTime}</h3>
                     <button onClick={()=>{
                         navigate("/home");
                         setView(new View({

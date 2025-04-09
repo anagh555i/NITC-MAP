@@ -5,7 +5,7 @@ import menuicon from "../assets/menubar.svg"
 import searchicon from "../assets/search.svg"
 
 function SearchBar({menuUp,setMenuUp,setView,setDestination}){
-    const [searchtext,setSearchText]=useState("^^");
+    const [searchtext,setSearchText]=useState("^^^^^^^^^^^^^");
     const [locations,setLocations]=useState([]);
 
     useEffect(()=>{
@@ -28,13 +28,13 @@ function SearchBar({menuUp,setMenuUp,setView,setDestination}){
             </button>
             <input type="text"  placeholder="Search here" onChange={(e)=>{
                 if(e.target.value=="") setSearchText("^^^^^^^^^^^^^");
-                else setSearchText(e.target.value);
+                else setSearchText(e.target.value.toLowerCase());
             }}/>
             <button id="searchbutton">
                 <img src={searchicon} alt="" style={{height:"100%"}}/>
             </button>
         </div>
-        <div id="searchResult">
+        <div id="searchResult" style={{display:searchtext=="^^^^^^^^^^^^^"?"none":"block"}}>
             {   
                 locations.filter((e)=>e.featureName.includes(searchtext)).map((e,i)=>{
                     return (
@@ -49,7 +49,7 @@ function SearchBar({menuUp,setMenuUp,setView,setDestination}){
                             setSearchText("^^^^^^^^^^^^^");
                         }}> {e.featureName}</div>
                     );
-                }).slice(0, 5)
+                })
             }
         </div>
         </div>
